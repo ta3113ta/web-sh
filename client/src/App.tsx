@@ -16,10 +16,10 @@ function App() {
   return (
     <>
       {store.logOutputs.map((value, index) => (
-        <div key={index}>{value}</div>
+        <p key={index}>{value}</p>
       ))}
       <form onSubmit={handleSubmit}>
-        {store.isProcess || <input ref={inputRef} autoComplete="off" autoFocus/>}
+        <input ref={inputRef} autoComplete="off" autoFocus/>
       </form>
     </>
   );

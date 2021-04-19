@@ -1,37 +1,28 @@
-import { useEffect, useRef, useState } from 'react';
-import socketIOClient from 'socket.io-client';
-
-const ENDPOINT = "http://localhost:5001";
-const socket = socketIOClient(ENDPOINT);
-
+import { useRef } from "react";
+import { observer } from "mobx-react";
+import store from "./store/socket.store";
 
 function App() {
-  const [message, setMessage] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
-  
-  useEffect(() => {
-      socket.on('command', (msg) => {
-        setMessage(msg);
-      });
-  }, [])
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
     if (inputRef?.current?.value) {
-      socket.emit('command', inputRef.current.value);
-      inputRef.current.value = '';
+      store.sendCommand(inputRef.current.value);
+      inputRef.current.value = "";
     }
-  }
+  };
 
   return (
     <>
+      {store.logOutputs.map((value, index) => (
+        <div key={index}>{value}</div>
+      ))}
       <form onSubmit={handleSubmit}>
-        <input ref={inputRef} autoComplete="off" />
-        <button>send</button>
+        {store.isProcess || <input ref={inputRef} autoComplete="off" autoFocus/>}
       </form>
-      <p>{message}</p>
     </>
-  )
+  );
 }
 
-export default App;
+export default observer(App);

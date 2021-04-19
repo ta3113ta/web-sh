@@ -1,4 +1,4 @@
-import { Application } from "express";
+import express,{ Application } from "express";
 import { createServer } from "http";
 import { Server, ServerOptions } from "socket.io";
 import { Event } from "./enums/event";
@@ -7,8 +7,8 @@ class ServerFactory {
   server: any;
   socketIO: Server | undefined;
 
-  constructor(app: Application) {
-    this.server = createServer(app);
+  constructor() {
+    this.server = createServer(express());
   }
 
   setSocket(onConnection: any, opts?: Partial<ServerOptions> | undefined) {

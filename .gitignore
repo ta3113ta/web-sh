@@ -24,3 +24,6 @@ client/yarn-error.log*
 
 # server dependencies
 server/node_modules
+
+# production
+server/build

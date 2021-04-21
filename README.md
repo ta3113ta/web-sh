@@ -6,6 +6,7 @@ Now support windows only
 
 # Goal
 - Beautiful front-end and easy to use
+- Testing
 
 # Stack
 - Nodejs, Express, Socket.io

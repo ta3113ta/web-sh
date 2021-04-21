@@ -4,7 +4,6 @@ import { Event } from "../enums/event";
 
 function execHandler(socket: Socket) {
   const client = spawn("powershell", ["-noexit"], {shell: 'powershell.exe'});
-  let isWatchEndCommand: boolean;
 
   socket.on(Event.COMMAND, (command) => {
     client.stdin.write(command + "\n");

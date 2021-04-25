@@ -11,8 +11,10 @@ class ServerFactory {
     this.gateway = new Gateway(this.server);
   }
 
-  listen(port: any, cb?: (() => void) | undefined) {
-    this.server.listen(port, cb);
+  listen(port: any) {
+    this.server.listen(port, () => {
+      console.log("listening on port " + port);
+    });
   }
 }
 

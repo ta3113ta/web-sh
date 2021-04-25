@@ -25,6 +25,10 @@ class Gateway {
       console.log("user disconnected");
     });
   }
+
+  close() {
+    this.socketIO.close();
+  }
 }
 
 export default Gateway;

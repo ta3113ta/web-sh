@@ -7,12 +7,13 @@ function makeSocketObservable(socketStore: SocketStore) {
   socketStore.socket = socket;
 
   socketStore.socket.on("command", (msg) => {
+    console.log(msg.replace("\n", "eiei++++++++++"));
     socketStore.logOutputs.push(msg);
   });
 
-  socketStore.socket.on('close', (code) => {
-      socketStore.isProcess = false;
-  })
+  socketStore.socket.on("close", (code) => {
+    socketStore.isProcess = false;
+  });
 }
 
 export default makeSocketObservable;

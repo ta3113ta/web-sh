@@ -18,12 +18,7 @@ class Gateway {
 
   onConnection(socket: Socket) {
     console.log("a user connected");
-
     registerExecHandler(socket);
-
-    socket.on(Event.DISCONNECT, () => {
-      console.log("user disconnected");
-    });
   }
 
   close() {

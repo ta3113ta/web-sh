@@ -3,7 +3,9 @@ import { spawn } from "child_process";
 import { Event } from "../enums/event";
 
 function execHandler(socket: Socket) {
-  const powershell = spawn("powershell", ["-noexit"], {shell: 'powershell.exe'});
+  const powershell = spawn("powershell", ["-noexit"], {
+    shell: "powershell.exe",
+  });
 
   socket.on(Event.COMMAND, (command) => {
     powershell.stdin.write(command + "\n");
@@ -20,6 +22,11 @@ function execHandler(socket: Socket) {
 
   powershell.on("close", (code) => {
     socket.emit(Event.CLOSE, code);
+  });
+
+  socket.on(Event.DISCONNECT, () => {
+    console.log("user disconnected");
+    powershell.kill("SIGINT");
   });
 }
 

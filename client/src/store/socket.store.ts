@@ -1,10 +1,10 @@
 import { Socket } from "socket.io-client";
 import { makeAutoObservable } from "mobx";
-import makeSocketObservable from "./Socket";
+import makeSocketObservable from "./socket";
 
 export class SocketStore {
   logOutputs: string[] = [];
-  isProcess: boolean = false;
+  isProcessing: boolean = false;
   socket!: Socket;
 
   constructor() {
@@ -13,11 +13,11 @@ export class SocketStore {
   }
 
   sendCommand(command: string) {
-    this.isProcess = true;
+    this.isProcessing = true;
 
     if (command.toUpperCase() === "CLEAR") {
       this.logOutputs = [];
-      this.isProcess = false;
+      this.isProcessing = false;
       return;
     }
 

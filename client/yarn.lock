@@ -10060,10 +10060,10 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
-socket.io-client@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.npmjs.org/socket.io-client/-/socket.io-client-4.1.1.tgz"
-  integrity sha512-avzRzFZIkmyNxqvhmm5ns0Itq5dgEkesDPB6Tl0Yben47U08MvdFnVXAuFDULQhDXjuYdCb6QUEILYLUKQEuGg==
+socket.io-client@4.1.2:
+  version "4.1.2"
+  resolved "https://registry.npmjs.org/socket.io-client/-/socket.io-client-4.1.2.tgz"
+  integrity sha512-RDpWJP4DQT1XeexmeDyDkm0vrFc0+bUsHDKiVGaNISJvJonhQQOMqV9Vwfg0ZpPJ27LCdan7iqTI92FRSOkFWQ==
   dependencies:
     "@types/component-emitter" "^1.2.10"
     backo2 "~1.0.2"

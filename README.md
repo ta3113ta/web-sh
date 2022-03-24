@@ -1,4 +1,4 @@
-# Web PS
+# Web SH
 
 Run the command through the browser like TTY.
 > :warning: This is my funny project.
